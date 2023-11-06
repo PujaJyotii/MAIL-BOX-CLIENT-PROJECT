@@ -1,4 +1,4 @@
-import {  Navigate, Route, Routes } from "react-router-dom";
+import {   Navigate, Route, Routes } from "react-router-dom";
 
 
 import { useSelector } from "react-redux";
@@ -21,6 +21,7 @@ function App() {
       <Route path="/" element={!isLoggedIn ? <LogInSignUp /> : <Welcome />} />
         <Route path="/welcome" element={isLoggedIn ? <Welcome /> : null} />
         <Route path="*" element={<Navigate to="/" />} />
+        
     </Routes>
     </Layout>
     
