@@ -40,7 +40,7 @@ const MainNavigation = () => {
           <Nav className="ms-auto">
             {isLoggedIn ? (
               <>
-              
+              <Nav.Link href="/allmails">Mails</Nav.Link>
                 <Button variant="primary" type="submit" onClick={logoutHandler}>
                   Logout
                 </Button>

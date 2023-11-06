@@ -1,4 +1,4 @@
-import {   Navigate, Route, Routes } from "react-router-dom";
+import {     Route, Routes } from "react-router-dom";
 
 
 import { useSelector } from "react-redux";
@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import LogInSignUp from "./Component/Pages/LogInSignUp";
 import Welcome from "./Component/Pages/Welcome";
 import Layout from "./Component/Layout/Layout";
+import AllMails from "./Component/Pages/AllMails";
 
 
 function App() {
@@ -18,9 +19,23 @@ function App() {
       
       <Layout>
       <Routes>
-      <Route path="/" element={!isLoggedIn ? <LogInSignUp /> : <Welcome />} />
-        <Route path="/welcome" element={isLoggedIn ? <Welcome /> : null} />
-        <Route path="*" element={<Navigate to="/" />} />
+        {
+          !isLoggedIn ? (
+          <>
+           <Route path="/" element={<LogInSignUp />} />
+           
+          </>
+        ) :
+        <>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/welcome" element={<Welcome /> } /> 
+        <Route path="/allmails" element={<AllMails /> } /> 
+        
+       
+        </>}
+      
+        
+        
         
     </Routes>
     </Layout>

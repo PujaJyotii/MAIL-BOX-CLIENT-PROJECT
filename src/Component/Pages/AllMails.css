@@ -1,0 +1,12 @@
+.compose {
+    background-color: #1c60c7;
+    padding-left: 35px;
+    padding-right: 35px;
+    border: 1px solid #0b5ed7;
+    color: white;
+  }
+
+  .compose:hover {
+    background-color: #2a7ce6; /* Change to a lighter shade when hovered */
+    border: 1px solid #0b5ed7;
+  }
