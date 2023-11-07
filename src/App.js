@@ -8,6 +8,7 @@ import LogInSignUp from "./Component/Pages/LogInSignUp";
 import Welcome from "./Component/Pages/Welcome";
 import Layout from "./Component/Layout/Layout";
 import AllMails from "./Component/Pages/AllMails";
+import SpecificMail from "./Component/Pages/SpecificMail";
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/welcome" element={<Welcome /> } /> 
         <Route path="/allmails" element={<AllMails /> } /> 
-        
+        <Route path="/allmails/:sender" element={<SpecificMail />} />
        
         </>}
       

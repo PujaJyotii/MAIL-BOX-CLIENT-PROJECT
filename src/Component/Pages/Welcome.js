@@ -3,16 +3,22 @@ import SunEditor from "suneditor-react";
 import "suneditor/dist/css/suneditor.min.css";
 import './Welcome.css'
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { UIshowaction } from "../Redux/UIshow";
 
 
 
 
 const Welcome = () => {
     let email = useSelector((state) => (state.auth.email))
+    const dispatch = useDispatch()
     const [text, setText] = useState("");
     const [sender, setSender] = useState("");
+    function GetTextformEditor() {
+      const plainText = extractPlainTextFromHTML(text);
+      storeEmail(plainText);
+    }
   
   function extractPlainTextFromHTML(htmlString) {
     const parser = new DOMParser();
@@ -24,6 +30,7 @@ const Welcome = () => {
     const obj = {
         email: text,
         sender: sender,
+        showstar:true,
       };
     try {
         let response = await axios.post(
@@ -39,6 +46,8 @@ const Welcome = () => {
         );
         if (response.status === 200) {
           console.log(response.data);
+          const sendobj = { id: response.data.name, showstar: true };
+        dispatch(UIshowaction.anothershowStar(sendobj));
         } else {
           console.log("Error:", response.data, response.status);
         }
@@ -46,10 +55,7 @@ const Welcome = () => {
         console.log("Error:", err);
       }
     }
-      function GetTextformEditor() {
-        const plainText = extractPlainTextFromHTML(text);
-        storeEmail(plainText);
-      }
+      
     return (
     
          <>
