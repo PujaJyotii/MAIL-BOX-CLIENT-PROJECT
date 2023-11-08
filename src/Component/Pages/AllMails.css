@@ -10,3 +10,15 @@
     background-color: #2a7ce6; /* Change to a lighter shade when hovered */
     border: 1px solid #0b5ed7;
   }
+  .inbox {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    width: 135px;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  .sentdiv {
+    margin-top: 10px;
+    cursor: pointer;
+  }

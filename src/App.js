@@ -9,6 +9,7 @@ import Welcome from "./Component/Pages/Welcome";
 import Layout from "./Component/Layout/Layout";
 import AllMails from "./Component/Pages/AllMails";
 import SpecificMail from "./Component/Pages/SpecificMail";
+import SendMails from "./Component/Pages/SendMails";
 
 
 function App() {
@@ -31,8 +32,8 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/welcome" element={<Welcome /> } /> 
         <Route path="/allmails" element={<AllMails /> } /> 
-        <Route path="/allmails/:sender" element={<SpecificMail />} />
-       
+        <Route path="/allmails/:id" element={<SpecificMail />} />
+       <Route path="/sendMails" element={<SendMails />} />
         </>}
       
         
