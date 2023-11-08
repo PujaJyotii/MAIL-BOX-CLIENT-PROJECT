@@ -80,6 +80,7 @@ const Welcome = () => {
       } catch (err) {
         console.log("Error:", err);
       }
+      
     }
       
     return (
@@ -91,6 +92,7 @@ const Welcome = () => {
           <h2>Send Email</h2>
           <div className="mail-box">
             <small className="text-email">
+              
             <textarea
                 id="plainText"
                 style={{
@@ -109,6 +111,7 @@ const Welcome = () => {
             <small className="text-email2">Cc/Bcc</small>
 
             <small className="text-email mt-3">
+              From:
               <textarea
                 id="plainText"
                 style={{
@@ -118,10 +121,11 @@ const Welcome = () => {
                   width: "100%",
                   resize: "none",
                 }}
+                
                 onChange={(e) => {
                   setSubject(e.target.value);
                 }}
-              ></textarea>
+              >{email}</textarea>
             </small>
             <div>
               <SunEditor

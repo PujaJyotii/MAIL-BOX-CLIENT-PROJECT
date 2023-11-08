@@ -1,13 +1,15 @@
 import axios from "axios";
-import { useEffect } from "react";
+//import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 
 import Table from "react-bootstrap/Table";
 import { Link, useNavigate } from "react-router-dom";
 import "./AllMails.css";
-import { UIshowaction, getAllReceivedmails, getAllSendmails} from "../Redux/UIshow";
+import { UIshowaction } from "../Redux/UIshow";
 import { Button, Col, Container, Row} from "react-bootstrap";
+import useReceivedMails from "../../CustomHooks/useReceivedMails";
+import useSentMails from "../../CustomHooks/useSentMails";
 const AllMails = () => {
   let email = useSelector((state) => state.auth.email);
   let receivedmails = useSelector((state) => state.UIshow.receivedmails);
@@ -17,16 +19,8 @@ const AllMails = () => {
  const navigate = useNavigate()
 
 
-  useEffect(() => {
-    let mail = email.replace(/[@.]/g, "");
-    let linkreceived = `https://mail-box-8aa8b-default-rtdb.firebaseio.com/${mail}/send.json`;
-    let linkSend = `https://mail-box-8aa8b-default-rtdb.firebaseio.com/${mail}/allsendmail.json`;
-    dispatch(getAllReceivedmails(linkreceived));
-    setInterval(() => {
-      dispatch(getAllSendmails(linkSend));
-      console.log("called");
-    }, 2000);
-  }, [email, dispatch]);
+ useReceivedMails(email);
+ useSentMails(email)
   function showrecieveItems() {
     dispatch(UIshowaction.receivedMailHandler(true));
   }
